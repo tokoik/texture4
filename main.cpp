@@ -118,16 +118,16 @@ static void init(void)
 static void scene(void)
 {
   static const GLfloat color[] = { 1.0, 1.0, 1.0, 1.0 };  /* 材質 (色) */
-  
+
   /* 材質の設定 */
   glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, color);
-  
+
   /* アルファテスト開始 */
   glEnable(GL_ALPHA_TEST);
-  
+
   /* テクスチャマッピング開始 */
   glEnable(GL_TEXTURE_2D);
-  
+
   /* テクスチャ座標の自動生成を有効にする */
   glEnable(GL_TEXTURE_GEN_S);
   glEnable(GL_TEXTURE_GEN_T);
@@ -184,6 +184,7 @@ static void display(void)
   glScaled(0.5, 0.5, 1.0);
   gluPerspective(60.0, 1.0, 1.0, 100.0);
   gluLookAt(0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+
   /* トラックボール処理による回転 */
   glMultMatrixd(trackballRotation());
 
