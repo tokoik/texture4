@@ -12,9 +12,7 @@
 
 プログラムを実行すると、表面にタイヤのパターン画像（tire.raw）が貼り付けられた２つの箱が表示され、そのテクスチャが自動でアニメーション（回転と奥行きの変化）します。テクスチャの投影や切り出しを数式で表現する仕組みを視覚的に確認できます。
 
-<div style="text-align: center;">
-<img src="texture4.gif" width="256" height="256" alt="テクスチャの投影方向の変更" />
-</div>
+![テクスチャの投影方向の変更](https://tokoik.github.io/blog/assets/images/texture4.gif)
 
 ## 2. ビルド方法
 
