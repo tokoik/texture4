@@ -76,7 +76,8 @@ static void init(void)
   /* テクスチャ環境 */
   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-#if 0 /* テクスチャに別の色を混合する場合は 1 にしてください */
+#if 0
+  /* 混合する色の設定 */
   static const GLfloat blend[] = { 0.0, 1.0, 0.0, 1.0 };
   glTexEnvfv(GL_TEXTURE_ENV, GL_TEXTURE_ENV_COLOR, blend);
 #endif
@@ -86,6 +87,14 @@ static void init(void)
   glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
   glTexGeni(GL_R, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
   glTexGeni(GL_Q, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR);
+
+#if 0
+  /* テクスチャ座標生成関数の設定 */
+  glTexGendv(GL_S, GL_OBJECT_PLANE, genfunc[0]);
+  glTexGendv(GL_T, GL_OBJECT_PLANE, genfunc[1]);
+  glTexGendv(GL_R, GL_OBJECT_PLANE, genfunc[2]);
+  glTexGendv(GL_Q, GL_OBJECT_PLANE, genfunc[3]);
+#endif
 
   /* アルファテストの判別関数 */
   glAlphaFunc(GL_GREATER, 0.5);
@@ -127,12 +136,6 @@ static void scene(void)
   glEnable(GL_TEXTURE_GEN_T);
   glEnable(GL_TEXTURE_GEN_R);
   glEnable(GL_TEXTURE_GEN_Q);
-
-  /* テクスチャ生成関数の設定 */
-  glTexGendv(GL_S, GL_EYE_PLANE, genfunc[0]);
-  glTexGendv(GL_T, GL_EYE_PLANE, genfunc[1]);
-  glTexGendv(GL_R, GL_EYE_PLANE, genfunc[2]);
-  glTexGendv(GL_Q, GL_EYE_PLANE, genfunc[3]);
 
   /* モデルビュー変換行列の設定 */
   glMatrixMode(GL_MODELVIEW);
@@ -192,6 +195,12 @@ static void display(void)
 
   /* トラックボール処理で図形を回転 */
   //glMultMatrixd(trackballRotation());
+
+  /* テクスチャ生成関数の設定 */
+  glTexGendv(GL_S, GL_EYE_PLANE, genfunc[0]);
+  glTexGendv(GL_T, GL_EYE_PLANE, genfunc[1]);
+  glTexGendv(GL_R, GL_EYE_PLANE, genfunc[2]);
+  glTexGendv(GL_Q, GL_EYE_PLANE, genfunc[3]);
 
   /* テクスチャ行列の設定 */
   glMatrixMode(GL_TEXTURE);
