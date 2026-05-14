@@ -12,7 +12,7 @@
 
 プログラムを実行すると、表面にタイヤのパターン画像（tire.raw）が貼り付けられた２つの箱が表示され、そのテクスチャが自動で回転します。マウスのドラッグでテクスチャの投影方向を変更することができます。
 
-![テクスチャの投影方向の変更](https://tokoik.github.io/blog/assets/images/texture4.gif)
+![テクスチャの投影方向の変更](https://tokoik.github.io/blog/assets/images/texture4.webp)
 
 ## 2. ビルド方法
 
